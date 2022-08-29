@@ -1,3 +1,5 @@
+console.log('ok')
+
 function doGet(e){
     //get authorisation code from returned URL
     var authCode = JSON.stringify(e.parameter.code)
