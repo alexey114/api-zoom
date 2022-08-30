@@ -52,10 +52,10 @@ function getToken(authCodeClean) {
     var response = UrlFetchApp.fetch("https://zoom.us/oauth/token?grant_type=authorization_code&code=" + authCodeClean + "&redirect_uri=" + returnUrl, options)
 
     //запустить функцию, чтобы добавить токен доступа в электронную таблицу
-    // var resultText = response.getContentText()
-    // var resultObj = JSON.parse(resultText)
-    // var accessToken = resultObj['access_token']
-    // saveIntoSheet(accessToken, 2)
+    var resultText = response.getContentText()
+    var resultObj = JSON.parse(resultText)
+    var accessToken = resultObj['access_token']
+    saveIntoSheet(accessToken, 2)
 
     //вернуть значение токена доступа в родительскую функцию
     return accessToken;
