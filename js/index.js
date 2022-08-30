@@ -8,11 +8,12 @@ function doGet(e){
     var authCodeClean = authCode.replace(/['"]+/g, '')
 
     //запустить функцию для добавления в электронную таблицу
-    // // saveIntoSheet(authCodeClean, 1)
+    saveIntoSheet(authCodeClean, 1)
 
 
     //запустить функцию, чтобы получить токен из AuthCode
     var accessToken = getToken(authCodeClean)
+    console.log(accessToken)
 
 
     //проверить статус токена доступа и отобразить соответствующее сообщение на веб-странице
@@ -22,8 +23,7 @@ function doGet(e){
         return HtmlService.createHtmlOutput('Success! You can close this tab.')
 
     } else {
-        //there was a problem gettin Authentication Code
-
+        //возникла проблема с получением кода аутентификации
         //вернуть сообщение на веб-страницу, чтобы проинформировать пользователя
         return HtmlService.createHtmlOutput('Failed. You can close this tab')
     }
@@ -48,7 +48,7 @@ function getToken(authCodeClean) {
     var returnUrl = "https://bespoke-flan-8db314.netlify.app"
 
     //сделать вызов Zoom OAuth
-    // var response = UrlFetchApp.fetch("https://zoom.us/oauth/authorize?response_type=code&code" + authCodeClean + "&redirect_uri=" + returnUrl, options)
+    // var response = UrlFetchApp.fetch("https://zoom.us/oauth/authorize?response_type=code&code=" + authCodeClean + "&redirect_uri=" + returnUrl, options)
     var response = UrlFetchApp.fetch("https://zoom.us/oauth/token?grant_type=authorization_code&code=" + authCodeClean + "&redirect_uri=" + returnUrl, options)
 
     //запустить функцию, чтобы добавить токен доступа в электронную таблицу
