@@ -45,7 +45,7 @@ function getToken(authCodeClean) {
     }
 
     //URL-адрес веб-приложения, связанный с приложением Zoom OAuth
-    var returnUrl = "https://bespoke-flan-8db314.netlify.app"
+    var returnUrl = "https://zoom.us/oauth/authorize?response_type=code&client_id=N7fM9KQ0TRGiBbukGmfx3Q&redirect_uri=https%3A%2F%2Fbespoke-flan-8db314.netlify.app%2F"
 
     //сделать вызов Zoom OAuth
     // var response = UrlFetchApp.fetch("https://zoom.us/oauth/authorize?response_type=code&code=" + authCodeClean + "&redirect_uri=" + returnUrl, options)
@@ -60,3 +60,5 @@ function getToken(authCodeClean) {
     //вернуть значение токена доступа в родительскую функцию
     return accessToken;
 }
+
+doGet()
