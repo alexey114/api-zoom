@@ -48,8 +48,8 @@ function getToken(authCodeClean) {
     var returnUrl = "https://bespoke-flan-8db314.netlify.app"
 
     //сделать вызов Zoom OAuth
-    var response = UrlFetchApp.fetch("https://zoom.us/oauth/authorize?response_type=code&code" + authCodeClean + "&redirect_uri=" + returnUrl, options)
-    //var response = UrlFetchApp.fetch("https://zoom.us/oauth/token?grant_type=authorization_code&code=" + authCodeClean + "&redirect_uri=" + returnUrl, options)
+    // var response = UrlFetchApp.fetch("https://zoom.us/oauth/authorize?response_type=code&code" + authCodeClean + "&redirect_uri=" + returnUrl, options)
+    var response = UrlFetchApp.fetch("https://zoom.us/oauth/token?grant_type=authorization_code&code=" + authCodeClean + "&redirect_uri=" + returnUrl, options)
 
     //запустить функцию, чтобы добавить токен доступа в электронную таблицу
     // var resultText = response.getContentText()
